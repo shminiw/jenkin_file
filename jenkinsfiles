@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                echo 'Git checkout Successfully'
+            }
+        }
+        stage('Compile') {
+            steps {
+                echo 'Compiled Successfully'
+            }
+        }
+        stage('Unit Testing') { 
+            steps {
+                echo 'Unit Testing Successfully'
+            }
+        }
+        stage('Integrate Testing') { 
+            steps {
+                echo 'Integrate Testing Successfully'
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo 'Deploy Successfully'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'This will always run'
+        }
+        success{
+            echo 'This will run only if successful'
+        }
+        failure {
+            echo 'This will run only if failed'
+        }
+    }
+}
